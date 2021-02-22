@@ -13,9 +13,9 @@ class CarsController < ApplicationController
     # redirect_to cars#index
   end
 
-private
+  private
 
-def car_params
-  params.require(:car).permit(:brand, :model, :price_per_day)
-end
+  def car_params
+    params.require(:car).permit(:brand, :model, :price_per_day)
+  end
 end
