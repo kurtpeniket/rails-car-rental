@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'json'
+require 'net/http'
+
+url = 'https://private-6f7b7b-carsapi1.apiary-mock.com/cars'
+uri = URI(url)
+response = Net::HTTP.get(uri)
+json = JSON.parse(response)
 
 puts 'Cleaning DB...'
 Car.destroy_all
@@ -14,18 +21,19 @@ User.destroy_all
 puts 'Seeding new DB...'
 100.times do
   user = User.new(
-    name: Faker::GreekPhilosophers.name,
+    name: Faker::Name.name,
     email: Faker::Internet.email,
     password: '123456'
   )
   user.save!
-  puts "Created user: #{user.id}"
 
+  randomIndex = rand(1..100)
   car = Car.new(
     user_id: User.all.sample.id,
-    brand: Faker::Ancient.hero,
-    model: Faker::FunnyName.name,
-    price_per_day: rand(1..100)
+    brand: json[randomIndex]["make"],
+    model: json[randomIndex]["model"],
+    price_per_day: randomIndex,
+    img: json[randomIndex]["img_url"]
   )
   car.save!
   puts "Created car: #{car.id}"
