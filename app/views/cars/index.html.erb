@@ -1,14 +1,15 @@
-<h1>All cars</h1>
+<h1 class="text-center pt-5">All cars</h1>
 
-<div class="container">
-  <% @cars.each do |car| %>
-    <div class="card-product mb-5">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
+<div class="container p-3 mt-5">
+  <div class="cars">
+    <% @cars.each do |car| %>
+    <div class="card-trip">
+      <%= image_tag car.img, alt: "alttext" , class: "mx-auto d-block"%>
+      <div class="card-trip-infos">
         <h2><%= link_to car.brand, car_path(car) %></h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+        <h2><%= link_to car.model%></h2>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
