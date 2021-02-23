@@ -3,15 +3,19 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
-  def new
-    @car = Car.new
+  def show
+    @car = Car.find(params[:id])
   end
 
-  def create
-    @car = Car.new(car_params)
-    @car.save
-    # redirect_to cars#index
-  end
+  # def new
+  #   @car = Car.new
+  # end
+
+  # def create
+  #   @car = Car.new(car_params)
+  #   @car.save
+  #   # redirect_to cars#index
+  # end
 
   private
 
