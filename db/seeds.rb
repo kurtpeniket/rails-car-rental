@@ -17,6 +17,7 @@ json = JSON.parse(response)
 puts 'Cleaning DB...'
 Car.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 puts 'Seeding new DB...'
 100.times do
@@ -37,4 +38,5 @@ puts 'Seeding new DB...'
   )
   car.save!
   puts "Created car: #{car.id}"
+
 end
