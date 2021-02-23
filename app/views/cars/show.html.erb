@@ -1,4 +1,22 @@
 <h1><%= @car.brand %></h1>
 <h2><%= @car.model %></h2>
-<h4>£<%=@car.price_per_day %></h4>
 
+<h4>£<%=@car.price_per_day %> per day</h4>
+
+
+<div class="container">
+  <div class="bookings-card">
+    <div class="booking row justify-content-center my-3">
+      <div class="col-6">
+      <h2>Book this car</h2>
+        <div class="form booking-form">
+          <%= simple_form_for([@car, @booking]) do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :total_days %>
+          <%= f.submit "Request booking", class: "btn btn-primary" %>
+          <% end %>
+          <!-- JavaScript quote calculator -->
+        </div>
+    </div>
+  </div>
+</div>

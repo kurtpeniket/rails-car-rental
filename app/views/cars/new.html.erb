@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center my-3">
+    <div class="col-6">
+      <h2>Add a new car</h2>
+
+      <%= simple_form_for @car do |f| %>
+      <div class="form create-form" >
+        <%= f.input :brand %>
+        <%= f.input :model %>
+        <%= f.input :price_per_day %>
+      </div>
+      <div class="form-actions btn btn-primary">
+        <%= f.submit "Add car", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
