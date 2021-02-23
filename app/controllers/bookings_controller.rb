@@ -5,9 +5,15 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.car = @car
     if @booking.save
-      redirect_to car_path(@car)
+      redirect_to car_booking_path(@car, @booking)
     else
+      flash[:alert] = "Booking was not created!"
       render 'cars/show'
+    end
+
+    def show
+      # Currently shows all user bookings, change to current only
+      @bookings = Booking.all
     end
   end
 

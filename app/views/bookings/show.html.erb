@@ -1,0 +1,9 @@
+<% @bookings.each do |booking|%>
+    <h4><%= booking.car.brand %>
+    <%= booking.car.model %></h4>
+    <h4><%= booking.start_date %></h4>
+
+    <%total = booking.total_days %>
+    <%price = booking.car.price_per_day %>
+    <h4>Price £<%= total * price %></h4>
+<% end %>
