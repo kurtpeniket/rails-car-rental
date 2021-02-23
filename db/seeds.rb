@@ -36,5 +36,4 @@ puts 'Seeding new DB...'
     img: json[randomIndex]["img_url"]
   )
   car.save!
-  puts "Created car: #{car.id}"
 end
