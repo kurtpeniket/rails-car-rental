@@ -2,10 +2,12 @@
   <div class="card car-details">
     <h1><%= @car.brand %></h1>
     <h2><%= @car.model %></h2>
-      <% if @car.img %>
+       <% if @car.img != nil %>
         <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block"%>
-      <% else %>
+      <% elsif @car.photo.attached? %>
         <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
       <% end %>
     <h4>£<%=@car.price_per_day %> per day</h4>
   </div>
