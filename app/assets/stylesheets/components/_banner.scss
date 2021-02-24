@@ -1,8 +1,24 @@
 #banner-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg");
-    height: 80vh;
+    height: 95vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+#appname {
+    font-family: 'Yellowtail', cursive;
+    // font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 30px;
+    text-decoration: underline;
+}
+
+#logo {
+    border: 3px solid black;
+    padding: 20px;
+    border-radius: 50%;
+    width: 80px;
+    height: auto;
 }
