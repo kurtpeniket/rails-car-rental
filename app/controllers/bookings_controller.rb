@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
       flash[:alert] = "Booking was not created!"
       render 'cars/show'
     end
+  end
 
     def show
       @booking = Booking.find(params[:id])
