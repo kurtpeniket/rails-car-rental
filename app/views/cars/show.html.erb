@@ -2,7 +2,7 @@
 <h2><%= @car.model %></h2>
 
 <h4>£<%=@car.price_per_day %> per day</h4>
-
+<%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
 
 <div class="container">
   <div class="bookings-card">
