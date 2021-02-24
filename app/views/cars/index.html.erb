@@ -4,7 +4,7 @@
   <div class="cars">
     <% @cars.each do |car| %>
     <div class="card-trip">
-      <%= image_tag car.img, alt: "alttext" , class: "mx-auto d-block"%>
+      <%= image_tag car.img, alt: "alttext", class: "mx-auto d-block"%>
       <div class="card-trip-infos">
         <h2><%= link_to car.brand, car_path(car) %></h2>
         <h2><%= link_to car.model%></h2>
