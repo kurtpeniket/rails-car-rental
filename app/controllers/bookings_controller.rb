@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
 
     def show
       # Currently shows all user bookings, change to current only
-      @bookings = Booking.all
+      @booking = Booking.find(params[:car_id])
     end
   end
 
