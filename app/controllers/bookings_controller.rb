@@ -10,11 +10,11 @@ class BookingsController < ApplicationController
       flash[:alert] = "Booking was not created!"
       render 'cars/show'
     end
+  end
 
-    def show
-      # Currently shows all user bookings, change to current only
-      @bookings = Booking.all
-    end
+  def show
+    # Currently shows all user bookings, change to current only
+    @bookings = Booking.all
   end
 
   private
