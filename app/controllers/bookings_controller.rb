@@ -10,10 +10,11 @@ class BookingsController < ApplicationController
       flash[:alert] = "Booking was not created!"
       render 'cars/show'
     end
+  end
 
     def show
-      # Currently shows all user bookings, change to current only
-      @booking = Booking.find(params[:car_id])
+      @booking = Booking.find(params[:id])
+      @car = Car.find(@booking.car_id)
     end
   end
 

@@ -1,8 +1,14 @@
-<h1><%= @car.brand %></h1>
-<h2><%= @car.model %></h2>
+<div class="container show my-3">
+  <div class="card car-details">
+    <h1><%= @car.brand %></h1>
+    <h2><%= @car.model %></h2>
+    <%= image_tag @car.img, alt: "car-img", :width => "50%" %>
 
 <h4>£<%=@car.price_per_day %> per day</h4>
 <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
+    <h4>£<%=@car.price_per_day %> per day</h4>
+  </div>
+</div>
 
 <div class="container">
   <div class="bookings-card">
@@ -13,9 +19,8 @@
           <%= simple_form_for([@car, @booking]) do |f| %>
           <%= f.input :start_date, as: :date, html5: true %>
           <%= f.input :total_days %>
-          <%= f.submit "Request booking", class: "btn btn-primary" %>
+          <%= f.submit "Request booking", class: "btn-lg btn-block btn-outline-primary " %>
           <% end %>
-          <!-- JavaScript quote calculator -->
         </div>
     </div>
   </div>
