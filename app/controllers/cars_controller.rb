@@ -18,7 +18,8 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save!
-      redirect_to car_path(@car)
+      flash[:alert] = "Car added sucessfully!"
+      redirect_to cars_path
     else
       render :new
     end
