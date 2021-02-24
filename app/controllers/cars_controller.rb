@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  
+
   def index
     @cars = Car.all
   end
@@ -12,6 +12,7 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+
   end
 
   def create
@@ -27,6 +28,6 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:brand, :model, :price_per_day)
+    params.require(:car).permit(:brand, :model, :price_per_day, :photo)
   end
 end
