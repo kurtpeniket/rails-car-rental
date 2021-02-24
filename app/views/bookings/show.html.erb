@@ -1,9 +1,12 @@
-<% @bookings.each do |booking|%>
-    <h4><%= booking.car.brand %>
-    <%= booking.car.model %></h4>
-    <h4><%= booking.start_date %></h4>
-
-    <%total = booking.total_days %>
-    <%price = booking.car.price_per_day %>
-    <h4>Price £<%= total * price %></h4>
-<% end %>
+<div class="container text-center p-3">
+    <div class="car-details p-3">
+        <h1><%= @car.brand %></h1>
+        <h1><%= @car.model %></h1>
+        <%= image_tag @car.img %>
+        <h3>Booked from: <%= @booking.start_date %></h3>
+        <p>For a total of <%= @booking.total_days %> days </p>
+        <% sumtotal = @car.price_per_day * @booking.total_days %>
+        <h3><%= @booking.total_days %> day(s) X at £<%= @car.price_per_day %> per day </h3>
+        <h1>Total: £<%= sumtotal %></h1>
+    </div>
+</div>

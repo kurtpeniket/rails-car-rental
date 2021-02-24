@@ -12,8 +12,8 @@ class BookingsController < ApplicationController
     end
 
     def show
-      # Currently shows all user bookings, change to current only
-      @bookings = Booking.all
+      @booking = Booking.find(params[:id])
+      @car = Car.find(@booking.car_id)
     end
   end
 
