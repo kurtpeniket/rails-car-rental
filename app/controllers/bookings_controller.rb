@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
       @booking = Booking.find(params[:id])
       @car = Car.find(@booking.car_id)
     end
-  end
 
   private
 
