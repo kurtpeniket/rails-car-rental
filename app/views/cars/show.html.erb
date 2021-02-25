@@ -14,9 +14,16 @@
             <h2 class="mt-4 text-center"><%= @car.model.upcase %></h2>
             <h4><i class="fas fa-tags mr-3"></i>£<%=@car.price_per_day %> per day</h4>
           </div>
+        <div class="">
+          <% if @car.user == current_user %>
+          <%= link_to "Remove this car", car_path(@car), method: :delete, data: { confirm: "Confirm?" }, class: "btn btn-lg btn-outline-danger" %>
+          <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-lg btn-outline-dark" %>
+          <% end %>
+        </div>
       </div>
     </div>
 
+  <% unless @car.user == current_user %>
     <div class="col-6">
       <div class="bookings-card">
         <div class="booking row justify-content-center my-3">
@@ -33,5 +40,6 @@
         </div>
       </div>
     </div>
+  <% end %>
  </div>
 </div>
