@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>My Bookings</h1>
+    <% @bookings.each do |booking| %>
+    <div class=" card bookings-card">
+      <% if booking.car.img != nil %>
+        <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block"%>
+      <% elsif booking.car.photo.attached? %>
+        <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
+      <% end %>
+      <h4>You have booked a <%= booking.car.brand %> <%= booking.car.model %></h4>
+      <%  %>
+      <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
+      <% total_price = (booking.car.price_per_day)*(booking.total_days)%>
+      <h5>You have been charged £<%= total_price %> for this rental </h5>
+    <% end %>
+  </div>
+</div>
