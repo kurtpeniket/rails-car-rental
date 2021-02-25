@@ -29,12 +29,14 @@ puts 'Seeding new DB...'
   user.save!
 
   randomIndex = rand(1..10)
+  addresses = []
   car = Car.new(
     user: user,
     brand: json[randomIndex]["make"],
     model: json[randomIndex]["model"],
     price_per_day: randomIndex,
-    img: json[randomIndex]["img_url"]
+    img: json[randomIndex]["img_url"],
+    address: '10 Downing Street, London'
   )
   car.save!
 

@@ -3,6 +3,15 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
+
+    #Geocoder
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { car: car })
+      }
+    end
   end
 
   def show
