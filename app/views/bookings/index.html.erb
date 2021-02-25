@@ -14,6 +14,8 @@
       <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
       <% total_price = (booking.car.price_per_day)*(booking.total_days)%>
       <h5>You have been charged £<%= total_price %> for this rental </h5>
+      <%= link_to "approved", approved_booking_path(booking), method: :post, class: "btn btn-primary" %>
     <% end %>
-  </div>
+
+     </div>
 </div>
