@@ -2,8 +2,11 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cars = Car.all
-
+    if params[:query].present?
+      @cars = Car.search_by_brand_and_model(params[:query])
+    else
+      @cars = Car.all
+    end
     #Geocoder
     @markers = @cars.geocoded.map do |car|
       {
@@ -12,6 +15,7 @@ class CarsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { car: car })
       }
     end
+
   end
 
   def show
@@ -50,7 +54,7 @@ class CarsController < ApplicationController
 
   def destroy
     @car = Car.find(params[:id])
-    @car.destroy 
+    @car.destroy
     flash[:alert] = "Car deleted!"
     redirect_to cars_path
   end

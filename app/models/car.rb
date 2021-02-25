@@ -9,4 +9,12 @@ class Car < ApplicationRecord
   # Geocoder
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  # search
+  include PgSearch::Model
+  pg_search_scope :search_by_brand_and_model,
+    against: [ :brand, :model ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
