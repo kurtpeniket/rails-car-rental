@@ -5,17 +5,21 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.car = @car
     if @booking.save
-      redirect_to car_booking_path(@car, @booking)
+      redirect_to booking_path(@booking)
     else
       flash[:alert] = "Booking was not created!"
       render 'cars/show'
     end
   end
 
-    def show
-      @booking = Booking.find(params[:id])
-      @car = Car.find(@booking.car_id)
-    end
+  def index
+    @bookings = current_user.bookings
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @car = Car.find(@booking.car_id)
+  end
 
   private
 

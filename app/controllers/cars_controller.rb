@@ -3,6 +3,15 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
+
+    #Geocoder
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { car: car })
+      }
+    end
   end
 
   def show
@@ -19,7 +28,7 @@ class CarsController < ApplicationController
     @car.user = current_user
     if @car.save!
       flash[:alert] = "Car added sucessfully!"
-      redirect_to cars_path
+      redirect_to car_path(@car)
     else
       render :new
     end

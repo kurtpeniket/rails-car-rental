@@ -9,10 +9,11 @@
         <% else %>
           <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
         <% end %>
-        <h3>Booked from: <%= @booking.start_date %></h3>
-        <p>For a total of <%= @booking.total_days %> days </p>
+        <h3>Booked from the <%= @booking.start_date.strftime("#{@booking.start_date.day.ordinalize} %b, %Y")%></h3>
         <% sumtotal = @car.price_per_day * @booking.total_days %>
-        <h3><%= @booking.total_days %> day(s) X at £<%= @car.price_per_day %> per day </h3>
+        <h3><%= @booking.total_days %> day(s) at £<%= @car.price_per_day %> per day </h3>
         <h1>Total: £<%= sumtotal %></h1>
     </div>
+
+    <%= link_to "My Bookings", bookings_path, class: "btn btn-lg btn-secondary ml-5" %>
 </div>
