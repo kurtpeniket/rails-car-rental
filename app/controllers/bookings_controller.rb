@@ -21,6 +21,22 @@ class BookingsController < ApplicationController
     @car = Car.find(@booking.car_id)
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    @car = Car.find(@booking.car_id)
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking)
+      flash[:alert] = "Booking updated successfully!"
+    else
+      flash[:alert] = "Booking was not created!"
+      render 'cars/show'
+    end
+  end
+
   private
 
   def booking_params
