@@ -17,7 +17,6 @@
       <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
       <% total_price = (booking.car.price_per_day)*(booking.total_days)%>
       <h5>You have been paid £<%= total_price %> for this rental </h5>
-      
       <h4><%= booking.car.brand %> <%= booking.car.model %></h4>
       <h5><%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%></h5>
       <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary w-25" %>
@@ -43,8 +42,8 @@
         <% owner_bookings.each do |booking| %>
           <h4><%= booking %></h4>
           <div>
-            <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-primary" %>
-            <%= link_to "Reject", "#", class: "btn btn-danger" %>
+            <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
+            <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
           </div>
         <% end %>
       <% else %>
