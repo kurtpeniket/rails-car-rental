@@ -34,6 +34,27 @@ class CarsController < ApplicationController
     end
   end
 
+  def edit
+    @car = Car.find(params[:id])
+  end
+
+  def update
+    @car = Car.find(params[:id])
+    if @car.update(car_params)
+      flash[:alert] = "Car updated sucessfully!"
+      redirect_to car_path(@car)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @car = Car.find(params[:id])
+    @car.destroy 
+    flash[:alert] = "Car deleted!"
+    redirect_to cars_path
+  end
+
   private
 
   def car_params
