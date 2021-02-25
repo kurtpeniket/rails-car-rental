@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
     @booking.approved = true
     @booking.save
     redirect_to booking_path(@booking)
+  end
 
   def edit
     @booking = Booking.find(params[:id])
