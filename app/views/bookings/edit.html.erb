@@ -1,0 +1,31 @@
+<div class="container show my-3">
+  <div class="card car-details">
+    <h1><%= @car.brand %></h1>
+    <h2><%= @car.model %></h2>
+       <% if @car.img != nil %>
+        <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block"%>
+      <% elsif @car.photo.attached? %>
+        <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
+      <% end %>
+    <h4>£<%=@car.price_per_day %> per day</h4>
+  </div>
+</div>
+
+<div class="container">
+  <div class="bookings-card">
+    <div class="booking row justify-content-center my-3">
+      <div class="col-6">
+      <h2>Edit your booking</h2>
+        <div class="form booking-form">
+          <%= simple_form_for @booking do |f| %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :total_days %>
+          <%= f.submit "Update booking", class: "btn-lg btn-block btn-outline-primary " %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

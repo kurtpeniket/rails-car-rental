@@ -15,5 +15,6 @@
         <h1>Total: £<%= sumtotal %></h1>
     </div>
 
+    <%= link_to "Edit booking", edit_booking_path(@booking), class: "btn btn-lg btn-primary ml-5" %>
     <%= link_to "My Bookings", bookings_path, class: "btn btn-lg btn-secondary ml-5" %>
 </div>
