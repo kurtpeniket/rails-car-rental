@@ -15,32 +15,24 @@
   </div>
 </div>
 
-
 <div id="map-container">
-  <div class="container p-3 mt-5">
-  <h1 class="text-center pt-5">All cars</h1>
-    <div class="cars">
-      <% @cars.each do |car| %>
-      <div class="card-trip">
-        <% if car.img != nil %>
-          <%= link_to image_tag(car.img, alt: "alttext", class: "mx-auto d-block"), car_path(car)%>
-        <% elsif car.photo.attached? %>
-          <%= link_to (cl_image_tag car.photo.key), car_path(car) %>
-        <% else %>
-          <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block rounded"%>
-        <% end %>
-        <div class="card-trip-infos">
-          <h2><%= car.brand %></h2>
-          <h2><%= car.model %></h2>
-        </div>
+<div class="container cars-container">
+  <% @cars.each do |car| %>
+  <% if car.photo.attached?%>
+      <div class="card cars-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path car.photo.key, height: 300, width: 400, crop: :fill %>')">
+      <%= link_to car.brand, car_path(car) %><%= car.model %>
       </div>
-      <% end %>
-    </div>
-  </div>
+    <% else %>
+      <div class="card cars-card">
+      <%= link_to car.brand, car_path(car) %>
+      <%= car.model %>
+    <% end %>
+  <% end %>
+</div>
 
  <div id="map"
      style="width: 75%; height: 700px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
-
