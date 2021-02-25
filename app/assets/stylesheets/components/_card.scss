@@ -60,7 +60,7 @@
   margin-bottom: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 24px;
+  grid-gap: 16px;
   object-fit: cover;
   flex-grow: 1;
 }
@@ -68,7 +68,8 @@
 .cars-card {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 220px;
+  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
