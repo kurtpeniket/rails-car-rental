@@ -21,6 +21,12 @@ class BookingsController < ApplicationController
     @car = Car.find(@booking.car_id)
   end
 
+  def approved
+    @booking = Booking.find(params[:id])
+    @booking.approved = true
+    @booking.save
+    redirect_to booking_path(@booking)
+
   def edit
     @booking = Booking.find(params[:id])
     @car = Car.find(@booking.car_id)

@@ -9,9 +9,15 @@
       <% else %>
         <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
       <% end %>
+      <h4>You have booked a <%= booking.car.brand %> <%= booking.car.model %></h4>
+      <%  %>
+      <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
+      <% total_price = (booking.car.price_per_day)*(booking.total_days)%>
+      <h5>You have been charged £<%= total_price %> for this rental </h5>
+      <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-primary" %>
       <h4><%= booking.car.brand %> <%= booking.car.model %></h4>
       <h5><%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%></h5>
       <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary w-25" %>
-    <% end %>
-  </div>
+     <% end %>
+     </div>
 </div>
