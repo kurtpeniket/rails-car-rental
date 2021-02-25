@@ -11,7 +11,7 @@
         <% elsif car.photo.attached? %>
           <%= link_to (cl_image_tag car.photo.key), car_path(car) %>
         <% else %>
-          <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
+          <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block rounded"%>
         <% end %>
         <div class="card-trip-infos">
           <h2><%= car.brand %></h2>
