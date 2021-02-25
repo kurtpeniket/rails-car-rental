@@ -1,31 +1,37 @@
-<div class="container show my-3">
-  <div class="card car-details">
-    <h1><%= @car.brand %></h1>
-    <h2><%= @car.model %></h2>
-       <% if @car.img != nil %>
-        <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block"%>
-      <% elsif @car.photo.attached? %>
-        <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
-      <% end %>
-    <h4>£<%=@car.price_per_day %> per day</h4>
-  </div>
-</div>
-
-<div class="container">
-  <div class="bookings-card">
-    <div class="booking row justify-content-center my-3">
-      <div class="col-6">
-      <h2>Book this car</h2>
-        <div class="form booking-form">
-          <%= simple_form_for([@car, @booking]) do |f| %>
-          <%= f.input :start_date, as: :date, html5: true %>
-          <%= f.input :total_days %>
-          <%= f.submit "Request booking", class: "btn-lg btn-block btn-outline-primary " %>
+<div class="main-container">
+  <div class="row">
+    <div class="container col-6 show my-3">
+      <div class="card car-details ml-5 ">
+        <h1 class="mb-3"><%= @car.brand.upcase %></h1>
+           <% if @car.img != nil %>
+            <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block img-car"%>
+          <% elsif @car.photo.attached? %>
+            <%= cl_image_tag @car.photo.key, height: 500, width: 500, crop: :fill %>
+          <% else %>
+            <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block img-car"%>
           <% end %>
+          <div class="bg-white">
+            <h2 class="mt-4 text-center"><%= @car.model.upcase %></h2>
+            <h4><i class="fas fa-tags mr-3"></i>£<%=@car.price_per_day %> per day</h4>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="bookings-card">
+        <div class="booking row justify-content-center my-3">
+          <div class="col-6 car-booking-form">
+          <h2>Book this car</h2>
+            <div class="form booking-form">
+              <%= simple_form_for([@car, @booking]) do |f| %>
+              <%= f.input :start_date, as: :date, html5: true %>
+              <%= f.input :total_days %>
+              <%= f.submit "Request booking", class: "btn-lg btn-block btn-outline-primary " %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+ </div>
 </div>
