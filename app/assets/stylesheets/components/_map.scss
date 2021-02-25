@@ -3,10 +3,17 @@
 }
 
 #map {
-    height: 85vh;
-    width: 50vw;
+    // width: 50vw;
     position: sticky;
-    top: 15vh;
-    padding: 20px;
-    margin-top: 40px;
+    top: 20vh;
+    margin-right: 20px;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+  }
+  
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
