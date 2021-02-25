@@ -1,0 +1,16 @@
+.carousel-content {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  z-index: 20;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+
+  .review-avatar{
+    position: relative;
+
+    left: 90%
+  }
+}
+
