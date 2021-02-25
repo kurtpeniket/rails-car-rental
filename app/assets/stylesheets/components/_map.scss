@@ -1,0 +1,12 @@
+#map-container {
+    display: flex;
+}
+
+#map {
+    height: 85vh;
+    width: 50vw;
+    position: sticky;
+    top: 15vh;
+    padding: 20px;
+    margin-top: 40px;
+}
