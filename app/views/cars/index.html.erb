@@ -1,5 +1,21 @@
-<div id="map-container">
+<!-- search bar -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2 pt-4">
+      <%= form_tag cars_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search here...."
+         %>
+         <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div id="map-container">
 <div class="container cars-container">
   <% @cars.each do |car| %>
   <% if car.photo.attached?%>
@@ -10,21 +26,13 @@
       <div class="card cars-card">
       <%= link_to car.brand, car_path(car) %>
       <%= car.model %>
-      </div>
     <% end %>
   <% end %>
 </div>
 
-
-
-
-
-
-
-
  <div id="map"
      style="width: 75%; height: 700px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
-

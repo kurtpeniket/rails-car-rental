@@ -12,7 +12,7 @@
           <% end %>
           <div class="bg-white">
             <h2 class="mt-4 text-center"><%= @car.model.upcase %></h2>
-            <h4><i class="fas fa-tags mr-3"></i>£<%=@car.price_per_day %> per day</h4>
+            <h4>£<%=@car.price_per_day %> per day</h4>
           </div>
         <div class="">
           <% if @car.user == current_user %>

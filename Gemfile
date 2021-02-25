@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'pg_search', '~> 2.3.0'
 gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
