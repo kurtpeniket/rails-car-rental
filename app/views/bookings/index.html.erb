@@ -1,5 +1,5 @@
-<div class="container">
-    <h1 class="ml-5">My bookings</h1>
+<div class="container mt-5">
+    <h1 class="ml-5 mt-4"><u>My Bookings</u></h1>
     <div class="cars-container ml-3">
     <% @bookings.each do |booking| %>
       <div class=" card bookings-card">
@@ -10,19 +10,19 @@
         <% else %>
           <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block car-img"%>
         <% end %>
-        <h4>You have booked a <%= booking.car.brand %> <%= booking.car.model %></h4>
+        <h6>You have booked a <%= booking.car.brand %> <%= booking.car.model %></h6>
         <%  %>
-        <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
-        <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary view-btn" %>
+        <h6>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h6>
+        <%= link_to 'View booking', booking_path(booking), class: "btn btn-outline-primary view-btn " %>
       </div>
      <% end %>
    </div>
 
-    <h2 class="ml-5">My Garage</h2>
+    <h1 class="ml-5"><u>My Garage</u></h1>
     <div class=" cars-container ml-5 ">
       <% @cars.each do |car| %>
         <% car.bookings.each do |booking| %>
-          <div class="booking-card" >
+          <div class="booking-card " >
           <% if booking.car.img != nil %>
             <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block booking-img"%>
           <% elsif booking.car.photo.attached? %>
@@ -31,9 +31,10 @@
             <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block booking-img"%>
           <% end %>
 
-            <h4><%= car.brand %></h4>
-
-            <h4><%= booking.total_days %></h4>
+            <h6 class="pt-3"><%= car.brand %></h6>
+            <h6><%= booking.total_days %> days booked</h6>
+            <h6><%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y") %></h6>
+            <!-- <h4><%= booking.start_date %></h4> -->
             <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
             <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
           </div>
