@@ -12,29 +12,26 @@
           <div class="d-flex justify-content-around align-items-center mt-4">
             <div class="text-center">
               <h5 class="show-page-subtitle">Manufacturer</h5>
-              <h2><%= @car.brand %></h2>
+              <h3><%= @car.brand %></h3>
             </div>
             <div class="text-center">
               <h5 class="show-page-subtitle">Model</h5>
-              <h2><%= @car.model %></h2>
+              <h3><%= @car.model %></h3>
             </div>
             <div class="text-center">
               <h5 class="show-page-subtitle">Price</h5>
-              <h2>£<%=@car.price_per_day %> per day</h2>
+              <h3>£<%=@car.price_per_day %> per day</h3>
             </div>
           </div>
+          <br>
         <div class="">
           <% if @car.user == current_user %>
           <%= link_to "Remove this car", car_path(@car), method: :delete, data: { confirm: "Confirm?" }, class: "btn btn-lg btn-outline-danger" %>
-          <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-lg btn-outline-dark" %>
+          <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-lg btn-outline-dark ml-5" %>
           <% end %>
         </div>
       </div>
     </div>
-
-
-
-
 
 
 

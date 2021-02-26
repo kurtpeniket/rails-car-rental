@@ -1,4 +1,4 @@
-<div class="container text-center p-3">
+<div class="container p-3">
     <div class="car-details p-3 ">
         <h1><%= @car.brand %></h1>
         <h1><%= @car.model %></h1>
@@ -9,12 +9,14 @@
         <% else %>
           <%= image_tag 'p1.jpg', alt: "alttext", class: "show-image"%>
         <% end %>
-        <h3>Booked from the <%= @booking.start_date.strftime("#{@booking.start_date.day.ordinalize} %b, %Y")%></h3>
-        <% sumtotal = @car.price_per_day * @booking.total_days %>
-        <h3><%= @booking.total_days %> day(s) at £<%= @car.price_per_day %> per day </h3>
-        <h1>Total: £<%= sumtotal %></h1>
-    </div>
+        <div class="car-info">
+          <h3>Booked from the <%= @booking.start_date.strftime("#{@booking.start_date.day.ordinalize} %b, %Y")%></h3>
+          <% sumtotal = @car.price_per_day * @booking.total_days %>
+          <h3><%= @booking.total_days %> day(s) at £<%= @car.price_per_day %> per day </h3>
+          <h3 class="car-price">Total: £<%= sumtotal %></h3>
+          </div>
+          <%= link_to "Edit booking", edit_booking_path(@booking), class: "btn btn-lg btn-primary" %>
+          <%= link_to "My Bookings", bookings_path, class: "btn btn-lg btn-secondary ml-5" %>
+        </div>
+      </div>
 
-    <%= link_to "Edit booking", edit_booking_path(@booking), class: "btn btn-lg btn-primary ml-5" %>
-    <%= link_to "My Bookings", bookings_path, class: "btn btn-lg btn-secondary ml-5" %>
-</div>

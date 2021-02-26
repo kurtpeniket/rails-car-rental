@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center my-3">
     <div class="col-6">
-      <h2>Edit a new car</h2>
+      <h2>Edit your car</h2>
 
       <%= simple_form_for @car do |f| %>
       <div class="form create-form" >
@@ -11,7 +11,7 @@
         <%= f.input :photo, as: :file %>
       </div>
       <div class="form-actions btn btn-primary">
-        <%= f.submit "Add car", class: "btn btn-primary" %>
+        <%= f.submit "Update car", class: "btn btn-primary" %>
       </div>
       <% end %>
     </div>

@@ -30,16 +30,14 @@
           <% else %>
             <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block booking-img"%>
           <% end %>
-
             <h4><%= car.brand %></h4>
-
             <h4><%= booking.total_days %></h4>
             <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
             <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
           </div>
         <% end %>
-      <% if car.bookings.empty? %>
-        <h4>No bookings for <%= car.model %> yet...</h4>
+        <% if car.bookings.empty? %>
+        <h4>No bookings for your <%= car.brand %> yet...</h4>
       <% end %>
       <% end %>
     </div>
