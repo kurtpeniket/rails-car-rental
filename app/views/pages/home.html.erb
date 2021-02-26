@@ -47,8 +47,47 @@
   </div>
 </div>
 
+<h2 class="text-center mt-5">Customer Reviews</h2>
+<div class="container carousel-container mt-5 w-50" data-pause="false" data-interval="2000">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag "car1.jpeg", alt: "alttext", class:"d-block w-100" %>
+        <div class="carousel-content">
+          <p><i class="fas fa-quote-left"></i> Drove this car for a weekend trip, <br> Definitely will come back to rent again. <strong> -Ben, Liverpool </strong> <i class="fas fa-quote-right"></i></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "car2.jpeg", alt: "alttext", class:"d-block w-100" %>
+        <div class="carousel-content">
+          <p><i class="fas fa-quote-left"></i> Excellent service, <br> Can't believe I just heard about this site. <strong> -Sam, Kent </strong> <i class="fas fa-quote-right"></i></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "car3.jpeg", alt: "alttext", class:"d-block w-100"%>
+        <div class="carousel-content">
+          <p><i class="fas fa-quote-left"></i> I was able to drive my dream car! <strong>-Jen , London </strong> <i class="fas fa-quote-right"></i> </p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
-<div class="footer">
+</div>
+
+<div class="footer mt-5">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
