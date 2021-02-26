@@ -1,54 +1,35 @@
 <div class="container">
 
-    <%# Logic for cars you have booked where you are NOT the owner (as a customer on the site) %>
-    <% my_bookings = @bookings.select { |instance| instance.user_id == current_user.id } %>
-    <% my_bookings.each do |booking| %>
-    <div class=" card bookings-card">
-    <h1>My bookings</h1>
-      <% if booking.car.img != nil %>
-        <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block"%>
-      <% elsif booking.car.photo.attached? %>
-        <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
-      <% end %>
-      <h4>You have booked a <%= booking.car.brand %> <%= booking.car.model %></h4>
-      <%  %>
-      <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
-      <% total_price = (booking.car.price_per_day)*(booking.total_days)%>
-      <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary w-25" %>
+    <% @bookings.each do |booking| %>
+      <div class=" card bookings-card">
+        <h1>My bookings</h1>
+        <% if booking.car.img != nil %>
+          <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block"%>
+        <% elsif booking.car.photo.attached? %>
+          <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
+        <% end %>
+        <h4>You have booked a <%= booking.car.brand %> <%= booking.car.model %></h4>
+        <%  %>
+        <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
+        <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary w-25" %>
+      </div>
      <% end %>
-     </div>
-     <br>
 
-
-
-    <%# This block had the logic to display every car that the logged in user owns. Can access all other properties (price etc.) with car.PROPERTY as normal. %>
-   <!--  <% my_cars = @cars.select { |instance| instance.user_id == current_user.id }  %>
-    <div>
-      <% my_cars.each do |car| %>
-        <h4><%= car.brand %></h4>
-        <h4><%= car.model %></h4>
-      <% end %>
-    </div> -->
-
-     <h2>My Garage</h2>
-    <%# This block should show only the cars you own that have booking requests on them but the code below is *untested*! %>
     <div class="bg-dark text-light">
-    <h4>Booking requests</h4>
-      <% my_car_booking_ids = [] %>
-      <% my_cars.each { |instance| my_car_booking_ids << instance.id } %>
-      <% owner_bookings = @bookings.select { |instance| instance.car_id.in?(my_car_booking_ids) } %>
-      <% if owner_bookings.length > 0 %>
-        <% owner_bookings.each do |booking| %>
+      <h2>My Garage</h2>
+      <% @cars.each do |car| %>
+        <% car.bookings.each do |booking| %>  
           <h4><%= booking %></h4>
           <div>
             <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
             <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
           </div>
         <% end %>
-      <% else %>
-        <p>No bookings requests yet...</p>
+      <% if car.bookings.empty? %>
+        <h4>No bookings for <%= car.model %> yet...</h4>
+      <% end %>
       <% end %>
     </div>
 </div>
