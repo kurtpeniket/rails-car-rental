@@ -25,13 +25,15 @@
         <%= car.model %>
         </div>
       <% else %>
-        <div class="card cars-card">
+        <div class="card cars-card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= image_url car.img %>)">
         <%= link_to car.brand, car_path(car) %>
         <%= car.model %>
         </div>
       <% end %>
     <% end %>
   </div>
+
+
 
    <div id="map"
        style="width: 75%; height: 700px;"
