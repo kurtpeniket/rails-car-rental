@@ -31,30 +31,6 @@
   padding: 16px;
 }
 
-// .card-trip {
-//   overflow: hidden;
-//   background: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-// }
-
-// .card-trip > img {
-//   height: auto;
-//   width: 100%;
-//   object-fit: cover;
-// }
-
-// .card-trip h2 {
-//   font-size: 16px;
-//   font-weight: bold;
-//   padding-top: 10px;
-//   padding-left: 10px;
-//   text-align: center;
-// }
-
-// .card-trip:hover{
-//   background-color: #d3d3d3;
-// }
-
 .cars-container {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -102,37 +78,81 @@
 
 // car#show
 
-.car-details {
-  align-items: center;
-  padding: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  color: #92a2bf;
-  border: none;
-    h2 {
-      padding: 10px;
-    }
-    h4 {
-      // padding: 10px;
-      font-size: 38px;
-      font-weight: bold;
-    }
+// .car-details {
+//   width: 800px;
+//   align-items: center;
+//   padding: 20px;
+//   margin-top: 30px;
+//   margin-bottom: 30px;
+//   background-color: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   color: #92a2bf;
+//   border: none;
+//     h2 {
+//       padding: 10px;
+//     }
+//     h4 {
+//       // padding: 10px;
+//       font-size: 38px;
+//       font-weight: bold;
+//     }
 
-    h3 {
-      padding: 20px;
-    }
+//     h3 {
+//       padding: 20px;
+//     }
 
-   .img-car{
-    width: 500px;
-   }
-}
+//    .img {
+//     width: 300px;
+//    }
+// }
 
 .car-booking-form{
   position: relative;
   top: 150px;
   color: #92a2bf;
 }
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  position: relative;
+  width: 500px;
+  top: 150px;
+  margin: 24px;
+}
+
+.card-trip > img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+  h3 {
+    margin: 20px;
+  }
+}
+
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
 

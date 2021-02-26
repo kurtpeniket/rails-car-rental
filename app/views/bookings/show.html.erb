@@ -3,11 +3,11 @@
         <h1><%= @car.brand %></h1>
         <h1><%= @car.model %></h1>
         <% if @car.img != nil %>
-          <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block"%>
+          <%= image_tag @car.img, alt: "alttext", class: "show-image"%>
         <% elsif @car.photo.attached? %>
-          <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag @car.photo.key, class: "show-image"%>
         <% else %>
-          <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
+          <%= image_tag 'p1.jpg', alt: "alttext", class: "show-image"%>
         <% end %>
         <h3>Booked from the <%= @booking.start_date.strftime("#{@booking.start_date.day.ordinalize} %b, %Y")%></h3>
         <% sumtotal = @car.price_per_day * @booking.total_days %>

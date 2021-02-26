@@ -16,25 +16,26 @@
       <%  %>
       <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
       <% total_price = (booking.car.price_per_day)*(booking.total_days)%>
-      <h5>You have been paid £<%= total_price %> for this rental </h5>
-      <h4><%= booking.car.brand %> <%= booking.car.model %></h4>
-      <h5><%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%></h5>
       <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary w-25" %>
      <% end %>
      </div>
+     <br>
+
+
 
     <%# This block had the logic to display every car that the logged in user owns. Can access all other properties (price etc.) with car.PROPERTY as normal. %>
-    <% my_cars = @cars.select { |instance| instance.user_id == current_user.id }  %>
+   <!--  <% my_cars = @cars.select { |instance| instance.user_id == current_user.id }  %>
     <div>
       <% my_cars.each do |car| %>
         <h4><%= car.brand %></h4>
         <h4><%= car.model %></h4>
       <% end %>
-    </div>
+    </div> -->
 
+     <h2>My Garage</h2>
     <%# This block should show only the cars you own that have booking requests on them but the code below is *untested*! %>
     <div class="bg-dark text-light">
-    <h2>Booking requests</h2>
+    <h4>Booking requests</h4>
       <% my_car_booking_ids = [] %>
       <% my_cars.each { |instance| my_car_booking_ids << instance.id } %>
       <% owner_bookings = @bookings.select { |instance| instance.car_id.in?(my_car_booking_ids) } %>
@@ -47,7 +48,7 @@
           </div>
         <% end %>
       <% else %>
-        <h4>No bookings yet...</h4>
+        <p>No bookings requests yet...</p>
       <% end %>
     </div>
 </div>
