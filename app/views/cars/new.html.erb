@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container add-new-car-container" >
   <div class="row justify-content-center my-3">
-    <div class="col-6">
+    <div class="col-6 add-new-car-form ">
       <h2>Add a new car</h2>
-
       <%= simple_form_for @car do |f| %>
       <div class="form create-form" >
         <%= f.input :brand %>
         <%= f.input :model %>
         <%= f.input :price_per_day %>
+        <%= f.input :address %>
         <%= f.input :photo, as: :file %>
       </div>
       <div class="form-actions btn btn-primary">
