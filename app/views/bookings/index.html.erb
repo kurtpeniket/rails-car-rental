@@ -1,6 +1,6 @@
 <div class="container">
     <h1 class="ml-5">My bookings</h1>
-    <div class="container cars-container">
+    <div class="cars-container ml-3">
     <% @bookings.each do |booking| %>
       <div class=" card bookings-card">
         <% if booking.car.img != nil %>
@@ -18,8 +18,8 @@
      <% end %>
    </div>
 
-    <h2 class="ml-3">My Garage</h2>
-    <div class=" cars-container ">
+    <h2 class="ml-5">My Garage</h2>
+    <div class=" cars-container ml-5 ">
       <% @cars.each do |car| %>
         <% car.bookings.each do |booking| %>
           <div class="booking-card" >
