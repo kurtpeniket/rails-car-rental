@@ -19,10 +19,10 @@
    </div>
 
     <h1 class="ml-5"><u>My Garage</u></h1>
-    <div class=" cars-container ml-5 ">
+    <div class=" cars-container ml-2 ">
       <% @cars.each do |car| %>
         <% car.bookings.each do |booking| %>
-          <div class="booking-card " >
+          <div class="card bookings-card card-color " >
           <% if booking.car.img != nil %>
             <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block booking-img"%>
           <% elsif booking.car.photo.attached? %>
@@ -36,9 +36,10 @@
             <h6><%= booking.total_days %> days booked</h6>
             <h6><%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y") %></h6>
             <!-- <h4><%= booking.start_date %></h4> -->
-
-            <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
-            <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
+            <div class="approve-btn">
+              <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
+              <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
+            </div>
           </div>
         <% end %>
         <% if car.bookings.empty? %>
