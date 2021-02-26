@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = current_user.bookings
-    @cars = Car.all
+    @cars = current_user.cars
     # raise
   end
 
