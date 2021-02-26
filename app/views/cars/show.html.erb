@@ -1,26 +1,26 @@
 <div class="main-container">
   <div class="row">
     <div class="container col-6 show my-3">
-      <div>
+      <div class = "mt-3 ml-5">
            <% if @car.img != nil %>
-            <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block img-car"%>
+            <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block show-image img-car"%>
           <% elsif @car.photo.attached? %>
-            <%= cl_image_tag @car.photo.key, height: 500, crop: :fill %>
+            <%= cl_image_tag @car.photo.key, height: 500, crop: :fill, class: "mx-auto d-block show-image" %>
           <% else %>
-            <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block img-car"%>
+            <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block show-image img-car"%>
           <% end %>
-          <div class="d-flex justify-content-between align-items-center mt-4">
+          <div class="d-flex justify-content-around align-items-center mt-4">
             <div class="text-center">
-              <p class="show-page-subtitle">Manufacturer</p>
-              <h1><%= @car.brand.upcase %></h1>
+              <h5 class="show-page-subtitle">Manufacturer</h5>
+              <h2><%= @car.brand %></h2>
             </div>
             <div class="text-center">
-              <p class="show-page-subtitle">Model</p>
-              <h2><%= @car.model.upcase %></h2>
+              <h5 class="show-page-subtitle">Model</h5>
+              <h2><%= @car.model %></h2>
             </div>
             <div class="text-center">
-              <p class="show-page-subtitle">Price</p>
-              <h4>£<%=@car.price_per_day %> per day</h4>
+              <h5 class="show-page-subtitle">Price</h5>
+              <h2>£<%=@car.price_per_day %> per day</h2>
             </div>
           </div>
         <div class="">
