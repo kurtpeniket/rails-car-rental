@@ -31,36 +31,58 @@
   padding: 16px;
 }
 
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
+// .card-trip {
+//   overflow: hidden;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+// }
 
-.card-trip > img {
-  height: auto;
-  width: 100%;
-  object-fit: cover;
-}
+// .card-trip > img {
+//   height: auto;
+//   width: 100%;
+//   object-fit: cover;
+// }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  padding-top: 10px;
-  padding-left: 10px;
-  text-align: center;
-}
+// .card-trip h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   padding-top: 10px;
+//   padding-left: 10px;
+//   text-align: center;
+// }
 
-.card-trip:hover{
-  background-color: #d3d3d3;
-}
+// .card-trip:hover{
+//   background-color: #d3d3d3;
+// }
 
-.cars{
+.cars-container {
+  margin-top: 24px;
+  margin-bottom: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 24px;
-  // object-fit: cover;
+  grid-gap: 16px;
+  object-fit: cover;
   flex-grow: 1;
+}
+
+.cars-card {
+  background-size: cover;
+  background-position: center;
+  height: 220px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  a {
+    text-decoration: none;
+    color:white;
+  }
 }
 
 .card-category {
