@@ -1,28 +1,39 @@
 <div class="container">
-
+    <h1 class="ml-5">My bookings</h1>
+    <div class="container cars-container">
     <% @bookings.each do |booking| %>
       <div class=" card bookings-card">
-        <h1>My bookings</h1>
         <% if booking.car.img != nil %>
-          <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block"%>
+          <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block car-img"%>
         <% elsif booking.car.photo.attached? %>
           <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
         <% else %>
-          <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block"%>
+          <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block car-img"%>
         <% end %>
         <h4>You have booked a <%= booking.car.brand %> <%= booking.car.model %></h4>
         <%  %>
         <h5>From the <%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y")%> for <%= booking.total_days%> day(s)</h5>
-        <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary w-25" %>
+        <%= link_to 'View booking', booking_path(booking), class: "btn btn-primary view-btn" %>
       </div>
      <% end %>
+   </div>
 
-    <div class="bg-dark text-light">
-      <h2>My Garage</h2>
+    <h2 class="ml-3">My Garage</h2>
+    <div class=" cars-container ">
       <% @cars.each do |car| %>
-        <% car.bookings.each do |booking| %>  
-          <h4><%= booking %></h4>
-          <div>
+        <% car.bookings.each do |booking| %>
+          <div class="booking-card" >
+          <% if booking.car.img != nil %>
+            <%= image_tag booking.car.img, alt: "alttext", class: "mx-auto d-block booking-img"%>
+          <% elsif booking.car.photo.attached? %>
+            <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block booking-img"%>
+          <% end %>
+
+            <h4><%= car.brand %></h4>
+
+            <h4><%= booking.total_days %></h4>
             <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
             <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
           </div>
