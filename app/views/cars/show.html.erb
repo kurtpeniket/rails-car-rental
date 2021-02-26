@@ -1,18 +1,27 @@
 <div class="main-container">
   <div class="row">
     <div class="container col-6 show my-3">
-      <div class="card car-details ml-5 ">
-        <h1 class="mb-3"><%= @car.brand.upcase %></h1>
+      <div>
            <% if @car.img != nil %>
             <%= image_tag @car.img, alt: "alttext", class: "mx-auto d-block img-car"%>
           <% elsif @car.photo.attached? %>
-            <%= cl_image_tag @car.photo.key, height: 500, width: 500, crop: :fill %>
+            <%= cl_image_tag @car.photo.key, height: 500, crop: :fill %>
           <% else %>
             <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block img-car"%>
           <% end %>
-          <div class="bg-white">
-            <h2 class="mt-4 text-center"><%= @car.model.upcase %></h2>
-            <h4>£<%=@car.price_per_day %> per day</h4>
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <div class="text-center">
+              <p class="show-page-subtitle">Manufacturer</p>
+              <h1><%= @car.brand.upcase %></h1>
+            </div>
+            <div class="text-center">
+              <p class="show-page-subtitle">Model</p>
+              <h2><%= @car.model.upcase %></h2>
+            </div>
+            <div class="text-center">
+              <p class="show-page-subtitle">Price</p>
+              <h4>£<%=@car.price_per_day %> per day</h4>
+            </div>
           </div>
         <div class="">
           <% if @car.user == current_user %>
@@ -22,6 +31,12 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+
 
   <% unless @car.user == current_user %>
     <div class="col-6">
