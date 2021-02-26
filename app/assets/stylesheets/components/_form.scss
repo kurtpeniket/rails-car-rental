@@ -19,10 +19,10 @@
 }
 
 .add-new-car-form{
-  color: black ;
+  color: white ;
   font-weight: bold;
   margin-top: 50px;
-  background-image: url("road.jpg");
+  background-image: url(asset_path("road.jpg"));
   background-size: cover;
   width: 300px;
   border-radius: 20px;

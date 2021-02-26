@@ -31,16 +31,18 @@
             <%= image_tag 'p1.jpg', alt: "alttext", class: "mx-auto d-block booking-img"%>
           <% end %>
 
+
             <h6 class="pt-3"><%= car.brand %></h6>
             <h6><%= booking.total_days %> days booked</h6>
             <h6><%= booking.start_date.strftime("#{booking.start_date.day.ordinalize} %b, %Y") %></h6>
             <!-- <h4><%= booking.start_date %></h4> -->
+
             <%= link_to "Approve", approved_booking_path(booking), method: :post, class: "btn btn-success w-25" %>
             <%= link_to "Reject", "#", class: "btn btn-danger w-25" %>
           </div>
         <% end %>
-      <% if car.bookings.empty? %>
-        <h4>No bookings for <%= car.model %> yet...</h4>
+        <% if car.bookings.empty? %>
+        <h4>No bookings for your <%= car.brand %> yet...</h4>
       <% end %>
       <% end %>
     </div>
