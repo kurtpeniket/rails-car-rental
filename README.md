@@ -1,1 +1,4 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+## AirBnB Clone
+### Rails app for renting fake cars
+
+![landing_page](https://i.ibb.co/zs70cXV/Screenshot-from-2021-03-15-11-10-55.png)
